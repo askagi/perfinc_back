@@ -9,7 +9,7 @@ export interface IUser {
   updatedAt?: Date;
 }
 
-export const userSchema = new Schema<IUser>({
+export const userSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -24,4 +24,4 @@ export const userSchema = new Schema<IUser>({
   },
 });
 
-export const UserModal = mongoose.model("users", userSchema);
+export const UserModal = mongoose.model("Users", userSchema);
