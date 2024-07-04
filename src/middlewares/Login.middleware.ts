@@ -11,7 +11,10 @@ export const LoginMiddleware = {
 
     try {
       const secret = process.env.JWT_SECRET;
-      jwt.verify(token, secret as string);
+      const { id } = jwt.verify(token, secret as string) as { id: string };
+
+      req.userId = id;
+
       next();
     } catch (error) {
       return res.status(401).json({ message: "Invalid token" });
